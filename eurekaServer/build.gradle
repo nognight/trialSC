@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'com.trial.sc'
-version = '0.0.1-SNAPSHOT'
+version = 'trial'
 sourceCompatibility = '11'
 
 repositories {

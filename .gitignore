@@ -2,3 +2,8 @@
 /.gradle/
 /.idea/
 /build/
+/common/build/
+/eurekaServer/build/
+/orderCenter/build/
+/userCenter/build/
+/webApi/build/

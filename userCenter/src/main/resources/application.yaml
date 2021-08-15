@@ -9,10 +9,11 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:11000/eureka
+      defaultZone: http://host.docker.internal:11000/eureka
     register-with-eureka: true
     fetch-registry: true
   instance:
+    prefer-ip-address: true
 #    statusPageUrlPath: ${server.servlet.context-path}/status
 #    healthCheckUrlPath: ${server.servlet.context-path}/health-check
 
