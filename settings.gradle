@@ -1,0 +1,6 @@
+rootProject.name = 'trialSC'
+include 'eurekaServer'
+include 'webApi'
+include 'userCenter'
+include 'orderCenter'
+include 'common'

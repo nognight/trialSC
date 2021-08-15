@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.trial.sc'
+version = '0.0.1-SNAPSHOT'
+
+allprojects {
+    sourceCompatibility = '11'
+
+}
+
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    set('springCloudVersion', "2020.0.3")
+}
+
+dependencies {
+
+
+}
+
+ext {
+    set('springCloudVersion', "2020.0.3")
+}
+
+
