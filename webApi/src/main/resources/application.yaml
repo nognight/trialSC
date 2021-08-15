@@ -1,0 +1,26 @@
+server:
+  port: 11100
+  servlet:
+    context-path: /web-api
+
+
+spring:
+  application:
+    name: web-api
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:11000/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+#    statusPageUrlPath: ${server.servlet.context-path}/status
+#    healthCheckUrlPath: ${server.servlet.context-path}/health-check
+#    instance-id: webApi
+
+center-config:
+  order-center:
+    url: http://ORDER-CENTER/order-center
+  user-center:
+    url: http://USER-CENTER/user-center
+

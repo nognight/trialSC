@@ -1,0 +1,18 @@
+server:
+  port: 11200
+  servlet:
+    context-path: /user-center
+
+spring:
+  application:
+    name: user-center
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:11000/eureka
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+#    statusPageUrlPath: ${server.servlet.context-path}/status
+#    healthCheckUrlPath: ${server.servlet.context-path}/health-check
+
