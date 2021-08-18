@@ -12,7 +12,8 @@ this is a micro service back project for trial
 - github action
 - aws ecr ecs
 ## how to build
-  gradle
+- gradle buid
 
 ## how to deploy
+- github action
   
