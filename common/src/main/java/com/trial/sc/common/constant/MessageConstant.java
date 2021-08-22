@@ -7,4 +7,5 @@ public class MessageConstant {
 
     public static final String OK = "OK";
     public static final String ERROR = "ERROR";
+    public static final String FAILED = "FAILED";
 }
