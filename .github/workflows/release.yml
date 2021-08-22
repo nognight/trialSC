@@ -1,0 +1,61 @@
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'the tag name of ECR image'
+        required: true
+        default: ''
+      env:
+        description: 'release env'
+        required: true
+        default: 'prod'
+      micro_service:
+        description: 'micro service name'
+        required: true
+        default: 'eurekaServer'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: AWS credentials (prod)
+        uses: aws-actions/configure-aws-credentials@v1
+        if: ${{ github.event.inputs.env == 'prod' }}
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_ACCESS_KEY_SECRET_PROD }}
+          aws-region:  ${{ secrets.AWS_REGION_PROD }}
+
+      - name: login ECR repository
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: ECS task definition
+        id: render-container
+        uses: aws-actions/amazon-ecs-render-task-definition@v1
+        with:
+          task-definition: ${{ github.event.inputs.micro_service }}/task-definition.json
+          container-name: ${{ secrets.CONTAINER_NAME }}
+          image: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:${{ github.event.inputs.tag_name }}
+
+      - name: debug task definition
+        run: |
+          cat ${{ steps.render-container.outputs.task-definition }}
+
+      - name:  Deploy To  ECS
+        uses: aws-actions/amazon-ecs-deploy-task-definition@v1
+        env:
+          ACTIONS_STEP_DEBUG : true
+        with:
+          task-definition: ${{ steps.render-container.outputs.task-definition }}
+          service:  ${{ secrets.AWS_ECS_SERVICE }}
+          cluster:  ${{ secrets.AWS_ECS_CLUSTER }}
+          wait-for-service-stability: true
+
+      - name: logout
+        if: always()
+        run: docker logout

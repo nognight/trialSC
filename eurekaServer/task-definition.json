@@ -1,0 +1,64 @@
+{
+  "executionRoleArn": "",
+  "containerDefinitions": [
+    {
+      "name": "log-router",
+      "image": "906394416424.dkr.ecr.ap-northeast-1.amazonaws.com/aws-for-fluent-bit:latest",
+      "essential": true,
+      "firelensConfiguration": {
+        "options": {
+          "enable-ecs-log-metadata": "true"
+        },
+        "type": ""
+      },
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "firelens"
+        }
+      }
+    },
+    {
+      "portMappings": [
+        {
+          "hostPort": 11000,
+          "protocol": "tcp",
+          "containerPort": 11000
+        },
+        {
+          "hostPort": 80,
+          "protocol": "tcp",
+          "containerPort": 80
+        }
+      ],
+      "cpu": 0,
+      "environment": [],
+      "secrets":[{"name":"ENV_VALUE","valueFrom":"/DEV/ENV_VALUE"}],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "name": "",
+      "logConfiguration": {
+        "logDriver":"awsfirelens",
+        "options": {
+          "Name": "cloudwatch",
+          "region": "ap-northeast-1",
+          "log_group_name": "",
+          "auto_create_group": "true",
+          "log_stream_prefix": "from-fluent-bit"
+        }
+      }
+    }
+  ],
+  "placementConstraints": [],
+  "memory": "2048",
+  "taskRoleArn": "",
+  "family": "",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "networkMode": "awsvpc",
+  "cpu": "2048",
+  "volumes": []
+}
