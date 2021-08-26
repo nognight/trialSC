@@ -4,7 +4,7 @@ this is a micro service back project for trial
 ## the keyword of the project is 
 - springcloud
 - springboot
-- eureka
+- eureka/zookeeper/consul/nacos
 - loadbalancer
 - jpa
 - jwt
