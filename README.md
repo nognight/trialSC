@@ -1,5 +1,5 @@
 # trialSC
-this is a micro service back project for trial
+this is a micro service back project for trial.
 
 ## the keyword of the project is 
 - springcloud
