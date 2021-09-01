@@ -16,4 +16,7 @@ this is a micro service back project for trial.
 
 ## how to deploy
 - github action
+
+## about the frontend 
+- https://github.com/nognight/trialFE
   
