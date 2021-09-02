@@ -19,4 +19,7 @@ this is a micro service back project for trial.
 
 ## about the frontend 
 - https://github.com/nognight/trialFE
+
+## about scrum
+- https://nognight.atlassian.net/jira/software/projects/GWK/boards/1
   
