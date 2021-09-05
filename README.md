@@ -1,7 +1,7 @@
 # trialSC
 this is a micro service back project for trial.
 
-## the keyword of the project is 
+## the keyword of the project
 - springcloud
 - springboot
 - eureka/zookeeper/consul/nacos
