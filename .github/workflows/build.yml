@@ -40,7 +40,7 @@ jobs:
           java-version: 11
 
       - name: Build with Gradle
-        run:  cd ${{ github.event.inputs.micro_service }}  && gradle clean bootJar
+        run:  cd cd trialSC/${{ github.event.inputs.micro_service }}  && gradle clean bootJar
 
       - name: configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
