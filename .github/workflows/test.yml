@@ -20,4 +20,4 @@ jobs:
           java-version: 11
 
       - name: Build with Gradle
-        run:  gradle clean bootJar
+        run:  ./gradlew build

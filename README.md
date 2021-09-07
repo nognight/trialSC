@@ -14,6 +14,9 @@ this is a micro service back project for trial.
 ## how to build
 - gradle buid
 
+## build docker
+- 
+
 ## how to deploy
 - github action
 
