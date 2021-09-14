@@ -1,7 +1,5 @@
-# trialSC
-[![Build Status](https://app.travis-ci.com/nognight/trialSC.svg?branch=master)](https://app.travis-ci.com/nognight/trialSC)
-
-this is a micro service back project for trial.
+# trialSC [![Build Status](https://app.travis-ci.com/nognight/trialSC.svg?branch=master)](https://app.travis-ci.com/nognight/trialSC)
+- this is a micro service back project for trial.
 
 ## the keyword of the project
 - springcloud
